@@ -49,10 +49,10 @@
 
   /* ── 3. deck lightbox ──────────────────── */
   var DECKS = {
-    luxury: { count: 27, dir: 'assets/decks/luxury/' },
-    report: { count: 21, dir: 'assets/decks/report/' },
-    costa:  { count: 20, dir: 'assets/decks/costa/'  },
-    levis:  { count: 11, dir: 'assets/decks/levis/'  }
+    luxury: { count: 27, prefix: 'deck-luxury-' },
+    report: { count: 21, prefix: 'deck-report-' },
+    costa:  { count: 20, prefix: 'deck-costa-'  },
+    levis:  { count: 11, prefix: 'deck-levis-'  }
   };
   var DECK_EN = {
     luxury: 'Luxury Goods Distribution — Presentation',
@@ -81,7 +81,7 @@
     var cur = null, idx = 0, lastFocus = null;
 
     function pad(n) { return (n < 10 ? '0' : '') + n; }
-    function src(key, n) { return DECKS[key].dir + pad(n) + '.jpg'; }
+    function src(key, n) { return DECKS[key].prefix + pad(n) + '.jpg'; }
 
     function show(i) {
       var d = DECKS[cur];
