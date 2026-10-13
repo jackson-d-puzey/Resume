@@ -172,17 +172,44 @@ a { color: inherit; }
 }
 
 /* ── experience ──────────────────────────── */
-.exp { display: grid; grid-template-columns: minmax(260px, 30%) 1fr; align-items: start; }
+.exp { display: grid; grid-template-columns: minmax(300px, 34%) 1fr; align-items: stretch; }
 @media (max-width: 1080px) { .exp { grid-template-columns: 1fr; } }
 
-.exp__figure { position: sticky; top: 78px; margin: 0; }
-.exp__figure img { width: 100%; height: 78vh; object-fit: cover; object-position: 50% 30%; }
-.exp__list { padding-left: 56px; padding-right: var(--gut); }
+/* left column: photo on top, service beneath. the photo flexes so both
+   columns always end flush — no dead space under either one. */
+.exp__aside { display: flex; flex-direction: column; min-width: 0; }
+.exp__figure { position: relative; margin: 0; flex: 1 1 auto; min-height: 420px; overflow: hidden; }
+.exp__figure img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover; object-position: 50% 32%;
+}
+.exp__list { padding-left: 56px; padding-right: var(--gut); min-width: 0; }
+
 @media (max-width: 1080px) {
-  .exp__figure { position: static; }
-  .exp__figure img { height: 300px; object-position: 50% 28%; }
+  .exp__figure { flex: 0 0 auto; height: 300px; min-height: 0; }
+  .exp__figure img { object-position: 50% 28%; }
   .exp__list { padding: 32px var(--gut) 0; }
 }
+
+/* ── service & leadership (left column) ──── */
+.svc { padding: 44px 40px 0 var(--gut); }
+.svc__title {
+  font-size: 21px; font-weight: 700; letter-spacing: -.02em;
+  margin-bottom: 20px;
+}
+.svc__item { border-top: 1px solid var(--ink); padding: 18px 0 16px; }
+.svc__item + .svc__item { border-top-color: var(--rule); }
+.svc__org { font-size: 15.5px; font-weight: 600; letter-spacing: -.012em; line-height: 1.25; }
+.svc__meta {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--faint); margin: 5px 0 2px;
+}
+.svc__role {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
+}
+.svc .pts li { font-size: 11.5px; line-height: 1.7; padding-left: 16px; }
+@media (max-width: 1080px) { .svc { padding: 40px var(--gut) 0; } }
 
 /* caption sitting on a photo */
 /* captions sit over photographs of unknown brightness,
@@ -296,7 +323,7 @@ a { color: inherit; }
   display: flex; flex-direction: column; justify-content: center; min-height: 620px;
 }
 .quad__fig--bocconi img { object-position: 50% 32%; }
-.quad__fig--duomo img { object-position: 50% 42%; }
+.quad__fig--duomo img { object-position: 50% 0; }
 
 @media (max-width: 980px) {
   .quad { grid-template-columns: 1fr; }
