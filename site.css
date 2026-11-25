@@ -125,6 +125,7 @@ a { color: inherit; }
 }
 .hero__bio {
   font-size: 15px; font-weight: 400; line-height: 1.7; color: var(--muted);
+  text-wrap: pretty;
 }
 .hero__credit {
   position: absolute; left: var(--gut); bottom: 16px;
@@ -279,6 +280,7 @@ a { color: inherit; }
 .work .sec__num { color: rgba(250,249,245,.45); }
 .work .sec__title { color: var(--invert); }
 .work__intro {
+  text-wrap: pretty;
   font-size: 15px; line-height: 1.75; color: rgba(250,249,245,.6);
   max-width: 620px; margin: -22px 0 48px;
 }
